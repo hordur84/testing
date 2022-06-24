@@ -18,7 +18,7 @@ jobs:
       - setup_remote_docker
       - run:  
           name: dockering
-          command: docker build . 
+          command: node --version 
         
           
 
