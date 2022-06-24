@@ -22,4 +22,4 @@ jobs:
           command: node --version 
       - run: 
           name: dockering2
-          command: docker build .
+          command: docker build .  
