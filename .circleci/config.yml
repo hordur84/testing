@@ -16,6 +16,9 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: docker build .
+      - run:  
+          name: dockering
+          command: docker build . 
+        
           
 
