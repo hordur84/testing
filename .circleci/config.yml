@@ -20,7 +20,7 @@ workflows:
           profile-name: myProfileName
           public-registry: false
           push-image: true
-          region: AWS_DEFAULT_REGION
+          region: Europe (London)
           registry-id: AWS_ECR_REGISTRY_ID
           repo: aws_testing
           repo-scan-on-push: true
