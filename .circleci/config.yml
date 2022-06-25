@@ -1,9 +1,29 @@
 version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@8.1.2
+jobs:
+  stuff:
+    # working_directory: $CIRCLE_WORKING_DIRECTORY
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      - image: cimg/node:18.4.0
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 20.10.7
+      - run:  
+          name: dockering
+          command: node --version 
+      - run: 
+          name: dockering2
+          command: docker build .  
 workflows:
   build_and_push_image:
     jobs:
+      - stuff
       - aws-ecr/build-and-push-image:
           aws-access-key-id: AWS_ACCESS_KEY
           aws-cli-version: latest
