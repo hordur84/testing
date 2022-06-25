@@ -5,4 +5,4 @@ workflows:
   build_and_push_image:
     jobs:
       - aws-ecr/build-and-push-image:
-          repo: aws_testing  
+          repo: aws_testing
