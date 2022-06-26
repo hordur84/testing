@@ -8,8 +8,8 @@ workflows:
       - aws-ecr/build-and-push-image:
           repo: aws_testing 
       - aws-ecs/deploy-service-update:
-          cluster-name: 'default-cluster'
-          container-image-name-updates: 'container=sample-app-service,tag=${CIRCLE_SHA1}'
-          family: 'sample-app-service'
+          cluster-name: '${MY_APP_PREFIX}-cluster'
+          container-image-name-updates: 'container=${MY_APP_PREFIX}-service,tag=${CIRCLE_SHA1}'
+          family: '${MY_APP_PREFIX}-service'
           requires:
             - aws-ecr/build-and-push-image
