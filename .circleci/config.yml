@@ -1,8 +1,15 @@
 version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@8.1.2
+  aws-ecs: circleci/aws-ecs@2.3.0
 workflows:
   build_and_push_image:
     jobs:
       - aws-ecr/build-and-push-image:
           repo: aws_testing 
+      - aws-ecs/deploy-service-update:
+          cluster-name: 'default-cluster'
+          container-image-name-updates: 'container=default-service,tag=${CIRCLE_SHA1}'
+          family: 'default-service'
+          requires:
+            - aws-ecr/build-and-push-image
