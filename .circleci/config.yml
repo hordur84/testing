@@ -6,8 +6,8 @@ workflows:
     jobs:
       - eb/deploy:
           environment-name: my-application
-          filters:
-            branches:
-              only:
-                - master
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
           label: version-2
