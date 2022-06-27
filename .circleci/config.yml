@@ -12,4 +12,4 @@ workflows:
           ##container-image-name-updates: 'container=sample-app-service,tag=${CIRCLE_SHA1}'
           family: 'SomeClusterTask'
           requires:
-            - aws-ecr/build-and-push-image
+            - aws-ecr/build-and-push-image 
