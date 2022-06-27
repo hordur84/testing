@@ -5,7 +5,7 @@ workflows:
   elastic-beanstalk-workflow:
     jobs:
       - eb/deploy:
-          environment-name: my-application
+          environment-name: Myapplication-env
           # filters:
           #   branches:
           #     only:
