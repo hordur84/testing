@@ -1,15 +1,13 @@
 version: 2.1
-orbs:
-  aws-ecr: circleci/aws-ecr@8.1.2
-  aws-ecs: circleci/aws-ecs@2.3.0
+orbs: 
+  eb: circleci/aws-elastic-beanstalk@2.0.1
 workflows:
-  build_and_push_image:
+  elastic-beanstalk-workflow:
     jobs:
-      - aws-ecr/build-and-push-image:
-          repo: aws_testing 
-      - aws-ecs/deploy-service-update:
-          cluster-name: 'arn:aws:ecs:eu-west-2:997190786749:cluster/default'
-          ##container-image-name-updates: 'container=sample-app-service,tag=${CIRCLE_SHA1}'
-          family: 'first-run-task-definition'
-          requires:
-            - aws-ecr/build-and-push-image
+      - eb/deploy:
+          environment-name: my-application
+          filters:
+            branches:
+              only:
+                - master
+          label: version-2
