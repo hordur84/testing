@@ -10,4 +10,4 @@ workflows:
           #   branches:
           #     only:
           #       - master
-          label: version-2 
+          label: version-2  
