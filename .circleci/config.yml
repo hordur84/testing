@@ -9,7 +9,8 @@ workflows:
           repo: aws_testing 
       - aws-ecs/deploy-service-update:
           cluster-name: 'arn:aws:ecs:eu-west-2:997190786749:cluster/SomeCluster'
-          ##container-image-name-updates: 'container=sample-app-service,tag=${CIRCLE_SHA1}'
+          container-image-name-updates: 'container=sample-app-service,tag=${CIRCLE_SHA1}'
           family: 'SomeClusterTask'
+          force-new-deployment: true
           requires:
             - aws-ecr/build-and-push-image 
