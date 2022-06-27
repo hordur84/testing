@@ -13,4 +13,4 @@ workflows:
           family: 'SomeClusterTask'
           force-new-deployment: true
           requires:
-            - aws-ecr/build-and-push-image 
+            - aws-ecr/build-and-push-image  
